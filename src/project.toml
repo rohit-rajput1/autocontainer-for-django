@@ -1,0 +1,14 @@
+# Here we care disabling the command run for collectstatic by setting to 1
+[[build.env]]
+name = "DISABLE_COLLECTSTATIC"
+value = "1"
+
+# This is a google cloud runtime version and it doesn't need to match your python version
+[[build.env]]
+name = "GOOGLE_RUNTIME_VERSION"
+value = "3.11.7"
+
+# This specifies the entrypoint command for running the application which include the server and application endpoint.
+[[build.env]]
+name = "GOOGLE_ENTRYPOINT"
+value = "gunicorn home.wsgi:application --bind \"0.0.0.0:$PORT\""
